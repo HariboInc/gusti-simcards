@@ -1,5 +1,5 @@
-ESX                           = nil  
-local PlayerData              = {}  
+ESX                           = nil
+local PlayerData              = {}
 
 Citizen.CreateThread(function()
     while ESX == nil do
@@ -39,17 +39,17 @@ AddEventHandler('gusti_simcards:changeNumber', function(xPlayer)
                     if simCardCount > 0 then
                         TriggerServerEvent('gusti_simcards:useSimCard', number)               
                     else 
-                        ESX.ShowNotification("You don't have any sim cards")
+                        ESX.ShowNotification(_U('no_sim'))
                     end  
                 else
-                    ESX.ShowNotification('Phone numbers must only contain digits')
+                    ESX.ShowNotification(_U('digits'))
                 end             
             else
-                ESX.ShowNotification('Phone numbers need to be ~r~7 ~w~digits')
+                ESX.ShowNotification(_U('max_digits'))
             end
             menu.close()                 
         else
-            ESX.ShowNotification('~r~No number provided')
+            ESX.ShowNotification(_U('no_number'))
             menu.close()
         end
 
@@ -77,7 +77,7 @@ AddEventHandler('gusti_simcards:startNumChange', function(newNum)
         if complete then
             TriggerServerEvent('gusti_simcards:changeNumber', newNum)        
             exports.dpemotes:EmoteCancel()                                              
-            ESX.ShowNotification('Phone number updated to ~g~' .. newNum)                                        
+            ESX.ShowNotification(('updated')' ~g~' .. newNum)                                        
             if Config.gcphoneEnabled then
                 Citizen.Wait(2000)
                 TriggerServerEvent('gcPhone:allUpdate')
@@ -85,7 +85,7 @@ AddEventHandler('gusti_simcards:startNumChange', function(newNum)
         end   
     else
         TriggerServerEvent('gusti_simcards:changeNumber', newNum)   
-        ESX.ShowNotification('Phone number updated to ~g~' .. newNum)
+        ESX.ShowNotification(('updated')' ~g~' .. newNum)
         Citizen.Wait(2000)                             
         if Config.gcphoneEnabled then
             TriggerServerEvent('gcPhone:allUpdate')

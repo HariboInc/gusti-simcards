@@ -37,7 +37,7 @@ ESX.RegisterUsableItem('sim_card', function(source)
 end)
 
 --[[ Version Checker ]]--
-local version = "1.0.0"
+local version = "1.1.0"
 
 if Config.CheckForUpdates then
     AddEventHandler("onResourceStart", function(resource)
