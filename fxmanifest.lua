@@ -3,7 +3,7 @@ game 'gta5'
 
 author 'Gusti Agung'
 description 'This gusti-simcards script adds a cellphone simcard, and allows players to change their cellphone numbers'
-version '1.0.0'
+version '1.1.0'
 
 server_scripts {
 	'@mysql-async/lib/MySQL.lua',
